@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.brush rect.selection {
+  fill: steelblue;
+  fill-opacity: 0.2;
+  stroke: none;
+}
