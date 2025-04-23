@@ -9,14 +9,14 @@ const AddUsForm = ({ onAddStroke }) => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      // Отправка данных на сервер
-      // const response = await axios.post('https://your-api-endpoint.com/users', {
+      // server Res 
+      // const response = await axios.post('http://lcoalhost:80000/docs/{}', {
       //   name: values.name,
       //   age: values.age
       // });
       
       const fakeRes = {name:values.name, age:values.age}
-      // Оповещение об успехе
+      
       message.success('Пользователь успешно добавлен');
       
       // Очистка формы

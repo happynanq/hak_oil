@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, Input, Space, Select, Form, Modal, Button, Flex } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AddUsForm from './FormAddStroke';
-import Chart from './Charts/Chart';
+import InteractiveChart from './Charts/InteractiveChart';
 
 
 
@@ -163,7 +163,7 @@ const ShowStroke = ({id}) => {
 
         <Button type="primary" onClick={()=>setChartModal(true)}>Нарисовать данные</Button>
         <Modal open={chartModal} onCancel={()=>setChartModal(false)} footer={null} >
-          <Chart id={id}/>
+          <InteractiveChart id={id}/>
         </Modal>
         
         { 
