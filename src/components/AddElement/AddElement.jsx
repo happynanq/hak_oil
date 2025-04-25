@@ -22,14 +22,14 @@ const AddElement = () => {
 
   const beforeUpload = (file) => {
     const isLt5M = file.size / 1024 / 1024 < 5;
-    if (!isLt5M) {
-      message.error(`${file.name} слишком большой (максимум 5MB)`);
-      return Upload.LIST_IGNORE;
-    }
-    if (!isValidFileType(file)) {
-      message.error(`${file.name} имеет недопустимый формат`);
-      return Upload.LIST_IGNORE;
-    }
+    // if (!isLt5M) {
+    //   message.error(`${file.name} слишком большой (максимум 5MB)`);
+    //   return Upload.LIST_IGNORE;
+    // }
+    // if (!isValidFileType(file)) {
+    //   message.error(`${file.name} имеет недопустимый формат`);
+    //   return Upload.LIST_IGNORE;
+    // }
     return true;
   };
 

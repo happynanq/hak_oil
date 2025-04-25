@@ -12,15 +12,23 @@ function handleDateChange(date){
 
 const searchOptions = [
   { value: 'field', label: 'Месторождение' },
-  { value: 'dateResearch', label: 'Возраст' },
-  { value: 'address', label: 'Адрес' },
+  { value: 'dateResearch', label: 'Дата' },
+  // { value: 'address', label: 'Адрес' },
 ];
 
 function getRandomDate(startDate, endDate) {
   const start = new Date(startDate).getTime();
   const end = new Date(endDate).getTime();
   const randomTime = start + Math.random() * (end - start);
-  return new Date(randomTime);
+  const date = new Date(randomTime);
+  
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  
+  return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
 
@@ -56,7 +64,7 @@ const EditableTable = () => {
     // Генерация фейковых данных (в реальном приложении замените на API-запрос)
     const newData = Array.from({ length: pageSize }, (_, i) => ({
       key: start + i,
-      field: `Item ${start + i + 1}`,
+      field: `Исследование ${start + i + 1}`,
       dateResearch: getRandomDate('2000-01-01', new Date()),
       address: `Address ${start + i + 1}`,
       id:i,
@@ -65,7 +73,7 @@ const EditableTable = () => {
     setData(newData);
     setPagination({
       ...params,
-      total: 10000000, // Общее количество элементов (10^7)
+      total: 10000000, // 10^7
     });
     setLoading(false);
   };
@@ -167,6 +175,7 @@ const EditableTable = () => {
         ) : (
           <Flex style={{justifyContent:'space-between'}} >
             <Button
+              style={{marginRight:5}}
               icon={<EditOutlined />}
               onClick={() => edit(record)}
               disabled={editingKey !== ''}
@@ -181,7 +190,7 @@ const EditableTable = () => {
               }}
               disabled={editingKey !== ''}
               
-            >Open Modal</Button>
+            >Открыть исследование</Button>
   
           </Flex>
           

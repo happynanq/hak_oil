@@ -21,7 +21,7 @@ export function TestLayout() {
             />
           </div>
           <Flex gap="middle">
-            <Button type="primary" onClick={()=>{setModal(true)}}>Add Elem</Button>
+            <Button type="primary" onClick={()=>{setModal(true)}}>Добавить исследование</Button>
             
           </Flex>
         </Flex>
@@ -51,7 +51,7 @@ export function TestLayout() {
       <Layout.Footer>Роснефть ©2025</Layout.Footer>
     </Layout>
     <Modal 
-     width="100%"
+     
      open={modal} onCancel={()=>setModal(false)} footer={null}>
               <AddElement/>
       </Modal>
